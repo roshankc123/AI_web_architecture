@@ -1,3 +1,11 @@
+#do this to run
+	1. go to the main folder
+	2. pip install requirement.txt
+	3. python app.py
+	4. site is hosted
+
+or follow below explanation, from oficial creater of this code
+
 # facial-emotion-detection-webapp
 This is facial detection webapp created using keras and flask.
 
