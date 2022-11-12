@@ -1,4 +1,4 @@
-#do this to run
+# do this to run
 	1. go to the main folder
 	2. pip install requirement.txt
 	3. python app.py
