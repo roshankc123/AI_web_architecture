@@ -54,15 +54,23 @@ def after():
 
     prediction = model.predict(image)
 
+    print(prediction)
+
     label_map =   ['Anger','Neutral' , 'Fear', 'Happy', 'Sad', 'Surprise']
 
     prediction = np.argmax(prediction)
 
-    final_prediction = label_map[prediction]
+    print(prediction)
+
+    final_prediction_1 = label_map[prediction]
+
+    label_map_emo =   {'Anger' : '', 'Neutral' : '😇' , 'Fear' : '', 'Happy' : '😀', 'Sad' : '', 'Surprise' : ''}
+
+    final_prediction = label_map_emo[final_prediction_1]
 
     return render_template('after.html', data=final_prediction)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run( '192.168.43.164', '2000' ,debug=True)
 
 
