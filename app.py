@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 import cv2
 from keras.models import load_model
 import numpy as np
+import pickle
+from skimage.transform import resize
 
 app = Flask(__name__)
 
@@ -44,33 +46,43 @@ def after():
     except:
         image = cv2.imread('static/file.jpg', 0)
 
-    image = cv2.resize(image, (48,48))
+    image = resize(image, (48,48))
 
-    image = image/255.0
+    # image = image/255.0
 
-    image = np.reshape(image, (1,48,48,1))
+    image = [image.flatten()]
 
-    model = load_model('model_3.h5')
+    # print(l)
 
-    prediction = model.predict(image)
+    # image = np.reshape(image, (1,48,48,1))
+
+    # image = image.reshape((1,48,48,1))
+
+    # model = load_model('model_3.h5')
+    model = pickle.load(open('SVM_model.pkl', 'rb'))
+
+    # prediction = model.predict(image)
+
+    prediction = model.predict(image)[0]
+
 
     print(prediction)
 
-    label_map =   ['Anger','Neutral' , 'Fear', 'Happy', 'Sad', 'Surprise']
+    label_map =   ['Anger', 'disgust' , 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
 
-    prediction = np.argmax(prediction)
+    # prediction = np.argmax(prediction)
 
     print(prediction)
 
     final_prediction_1 = label_map[prediction]
 
-    label_map_emo =   {'Anger' : '', 'Neutral' : '😇' , 'Fear' : '', 'Happy' : '😀', 'Sad' : '', 'Surprise' : ''}
+    label_map_emo =   {'Anger' : '', 'disgust' : '', 'Fear' : '', 'Happy' : '😀','Neutral' : '😇' , 'Sad' : '', 'Surprise' : ''}
 
     final_prediction = label_map_emo[final_prediction_1]
 
-    return render_template('after.html', data=final_prediction)
+    return render_template('after.html', data=final_prediction_1)
 
 if __name__ == "__main__":
-    app.run( '192.168.43.164', '2000' ,debug=True)
+    app.run( '127.0.0.1', '8000' ,debug=True)
 
 
