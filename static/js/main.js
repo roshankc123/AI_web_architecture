@@ -196,9 +196,12 @@ const responseToDom=async(val)=>{
     'Suprise':"😯"
   }
   //open the model
+  const data=val.split(',')[0]
+  const image=val.split(',')[1]
   modal.style.display = "block";
-  modelText.innerHTML=responseObj[val]
-  responseImage.src='../static/after.jpg'
+  modelText.innerHTML=responseObj[data]
+
+  responseImage.src=`../static/${image}`
 
 
 }
