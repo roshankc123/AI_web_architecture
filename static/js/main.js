@@ -198,7 +198,12 @@ const responseToDom=async(val)=>{
   //open the model
   modal.style.display = "block";
   modelText.innerHTML=responseObj[val]
-  responseImage.src='../static/after.jpg'
+
+
+  document.getElementById("responseImage").src = 'static/cropped.jpg'
+
+  // document.getElementById("responseImage").src='static/after.jpg'
+  
 
 
 }

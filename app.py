@@ -4,10 +4,12 @@ from keras.models import load_model
 import numpy as np
 import pickle
 from skimage.transform import resize
+import random
 
 app = Flask(__name__)
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
+
 
 
 @app.route('/')
@@ -19,7 +21,7 @@ def after():
     img = request.files['file1']
 
     img.save('static/file.jpg')
-
+    aftername = random.randint(1, 100)
     ####################################
     img1 = cv2.imread('static/file.jpg')
     gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
@@ -31,7 +33,7 @@ def after():
 
         cropped = img1[y:y+h, x:x+w]
 
-    cv2.imwrite('static/after.jpg', img1)
+    cv2.imwrite('static/'+str(aftername)+'.jpg', img1)
 
     try:
         cv2.imwrite('static/cropped.jpg', cropped)
@@ -80,7 +82,7 @@ def after():
 
     final_prediction = label_map_emo[final_prediction_1]
 
-    return final_prediction_1
+    return final_prediction_1+','+str(aftername)+'.jpg'
 
 if __name__ == "__main__":
     app.run( '127.0.0.1', '8000' ,debug=True)
