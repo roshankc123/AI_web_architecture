@@ -36,7 +36,7 @@
 <body>
     <div class="">
 
-        <div class="m-3 px-3 custom-container ">
+        <div class="m-2 px-3 custom-container ">
             <div class="row">
                 <div class="col-sm-6 col-md-2">
                     <img src="logo.png" alt="" srcset="" id="logo_img">
@@ -48,18 +48,21 @@
 
             <div class="row donate m-1 py-2">
                 <br>
-                <h5>Click on the Play button to Start the Camera</h5>
+                <h5>Welcome to Facimotion !! <span class="small"> We will capture your image from the camera and detect your Emotion </span> </h5>
                 <br>
-                <h6>Then click on the Capture button to capture the screenshot</h6>
-                <h5> </h5>
+               
                 <br>
             </div>
 
-            <div class="row camblock p-3 mt-0">
+            <div class="row camblock p-3 pt-1 mt-0">
                 <div class="col-12 col-md-8 m-0">
-                    <div class="display-cover col-md-6">
-                        <video autoplay></video>
-                        <canvas class="d-none"></canvas>
+                    <div class="display-cover col-md-6 text-center">
+                        <div class="videoOrImage">
+                            <video autoplay id="afterStartVideo" class="d-none" ></video>
+                            <img id="replacingImage" class="screenshot-image-first" src="../static/emotion.jpg" alt="_ Here will be screenshot" >
+                            <p id="imageText" class="imageText bold"> Click on the Start Camera button </p>
+                        </div>
+                        <canvas class="d-none">  </canvas>
 
                         <div class="video-options">
                             <select name="" id="" class="custom-select">
@@ -71,7 +74,7 @@
                     </div>
 
                     <div class="controls m-4 px-4 ">
-                        <button class="btn btn-danger play" title="Play">Play</button>
+                        <button class="btn btn-danger play" title="Play">Start Camera</button>
                         <button class="btn btn-info pause d-none" title="Pause">Pause</button>
                         <button class="btn btn-success screenshot d-none" title="ScreenShot">
                             Capture
@@ -79,19 +82,26 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-md-4 ">
-                    <div class="screenshot-div">
-                        <img class="screenshot-image " alt="_ Here will be screenshot">
+                <div class="col-12 col-sm-12 col-md-4 container ">
+                    <div class="screenshot-div col-12 ">
+                        <div class="first-screenshot-field col-sm-6">
+                            <img class="screenshot-image " alt="_ Here will be screenshot">
+                        </div>
+                        <br>
+                        <div class="screenshot-image-two col-sm-6 ">
+                            <img class="" src="../static/after.jpg" alt="Server Image">
+                        </div>
                     </div>
 
                     <div class="container finalSubmit">
                         <br>
                         <br>
-                        <br>
+                        <h6>After clicking the capture button,</h6>
+                        <h6> There will be two options to pause the Video and Capture the Image </h6>
+                        <h6> Choose accordingly and if you want to recapture the image then click again !!</h6>
+                        <h5> </h5>
                         <form class="form-inline py-3" action="{{url_for('after')}}"
                             enctype="multipart/        form-data" method="post" name="mainForm">
-                            <input type="file" name="" id="">
-                            <br>
                             <button type="submit" class="btn btn-primary submitData" title="SubmitData">Submit</button>
                         </form>
 

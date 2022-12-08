@@ -11,6 +11,13 @@ const submit = document.querySelector(".finalSubmit");
 const submitButtons = [...submit.querySelectorAll("button")];
 const [submitData] = submitButtons;
 
+
+var replacingImage = document.getElementById("replacingImage");
+var afterStartVideo = document.getElementById("afterStartVideo");
+var imageText = document.getElementById("imageText");
+
+
+
 //For model
 var modal = document.getElementById("myModal");
 var modelClose = document.getElementById("myModelClose");
@@ -60,7 +67,16 @@ const getCameraSelection = async () => {
   cameraOptions.innerHTML = options.join("");
 };
 
+
+
 play.onclick = () => {
+  afterStartVideo.style.display="block"
+  video.classList.remove("d-none");
+
+  replacingImage.style.display="none"
+  imageText.style.display="none"
+
+
   if (streamStarted) {
     video.play();
     play.classList.add("d-none");
