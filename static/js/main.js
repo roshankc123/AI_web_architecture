@@ -11,6 +11,11 @@ const submit = document.querySelector(".finalSubmit");
 const submitButtons = [...submit.querySelectorAll("button")];
 const [submitData] = submitButtons;
 
+//For model
+var modal = document.getElementById("myModal");
+var modelClose = document.getElementById("myModelClose");
+var modelText = document.getElementById("modelText");
+
 let streamStarted = false;
 
 const [play, pause, screenshot] = buttons;
@@ -32,6 +37,19 @@ const constraints = {
     facingMode: "user",
   },
 };
+
+//Model funtions
+modelClose.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
 
 const getCameraSelection = async () => {
   const devices = await navigator.mediaDevices.enumerateDevices();
@@ -123,8 +141,6 @@ const submitAction = async (e) => {
   const formData = new FormData();
 
   formData.append("name", "UserName");
-
-
   // JavaScript file-like object
   const content = '<q id="a"><span id="b">hey!</span></q>'; // the body of the new file…
   const blob = new Blob([variables.arr], { type: "text/xml" });
@@ -132,8 +148,17 @@ const submitAction = async (e) => {
   formData.append("file1", blob);
 
   const request = new XMLHttpRequest();
-  request.open("POST", "{{url_for('after')}}");
+  request.open("POST", "/after");
   request.send(formData);
+
+  let responseVal;
+  request.onreadystatechange = function() {
+    if (request.readyState == XMLHttpRequest.DONE) {
+        responseVal=(request.responseText)
+        responseToDom(responseVal)
+    }
+}
+
 
   // const src = screenshotImage;
   // const form = document.forms.namedItem("mainForm");
@@ -144,6 +169,29 @@ const submitAction = async (e) => {
   // console.log(formData);
   // console.log("invoked");
 };
+
+const responseToDom=async(val)=>{
+  let responseObj={
+    'Neutral':"😐",
+    'Happy':"😊",
+    'Sad':"🙁",
+    'Angry':"😠",
+    'Fear':"😨",
+    'Disgust':"😖",
+    'Suprise':"😯"
+  }
+  //open the model
+  modal.style.display = "block";
+  modelText.innerHTML=responseObj[val]
+
+
+
+
+
+}
+
+
+
 
 const getData = async (formData) => {
   await fetch("upload.php", {
