@@ -15,6 +15,7 @@ const [submitData] = submitButtons;
 var replacingImage = document.getElementById("replacingImage");
 var afterStartVideo = document.getElementById("afterStartVideo");
 var imageText = document.getElementById("imageText");
+var responseImage = document.getElementById("responseImage");
 
 
 
@@ -57,7 +58,6 @@ window.onclick = function(event) {
 }
 
 
-
 const getCameraSelection = async () => {
   const devices = await navigator.mediaDevices.enumerateDevices();
   const videoDevices = devices.filter((device) => device.kind === "videoinput");
@@ -66,7 +66,6 @@ const getCameraSelection = async () => {
   });
   cameraOptions.innerHTML = options.join("");
 };
-
 
 
 play.onclick = () => {
@@ -199,9 +198,7 @@ const responseToDom=async(val)=>{
   //open the model
   modal.style.display = "block";
   modelText.innerHTML=responseObj[val]
-
-
-
+  responseImage.src='../static/after.jpg'
 
 
 }
