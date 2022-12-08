@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+body{
+    font-family: 'Poppins';
+}
+
+.bold{
+    font-weight: bold;
+}
+
+
+.screenshot-div{
+    border-radius: 4px;
+    display: block;
+    overflow: hidden;
+   
+
+
+}
+
+.screenshot-image {
+    width:250px;
+    transform: scale(1.2);
+    display: block;
+}
+
+.display-cover {
+    width: 80%;
+    margin: 1% auto;
+    position: relative;
+    background: rgb(151, 147, 147);
+}
+
+.camblock{
+    background: rgb(241, 240, 240);
+}
+
+video {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.video-options {
+    position: absolute;
+    left: 20px;
+    top: 30px;
+}
+
+.controls {
+    position: relative;
+    right: 20px;
+    top: 20px;
+    display: flex;
+}
+
+
+
+
+.controls > button:hover svg {
+    color: white !important;
+}
+
+.controls > button > svg {
+    height: 20px;
+    width: 18px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+@media (min-width: 300px) and (max-width: 500px) {
+
+    .custom-container{
+        margin: 1rem !important;
+        padding: 0.2rem !important;
+    }
+
+
+    .controls button {
+        margin: 5px 0 !important;
+    }
+
+    .display-cover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 5% auto;
+        position: relative;
+    }
+
+    .donate h3{
+        font-size: 15px !important;
+        margin: -1rem 0;
+    }
+
+ 
+    
+    
+    
+}
+
+
+
+.controls button:nth-child(1) {
+    border: 2px solid #D2002E;
+}
+
+.controls button:nth-child(1) svg {
+    color: #D2002E;
+}
+
+.controls button:nth-child(2) {
+    border: 2px solid #008496;
+}
+
+.controls button:nth-child(2) svg {
+    color: #008496;
+}
+
+.controls button:nth-child(3) {
+    border: 2px solid #00B541;
+}
+
+.controls button:nth-child(3) svg {
+    color: #00B541;
+}
+
+
+.controls > button:hover svg {
+    color: white;
+}
