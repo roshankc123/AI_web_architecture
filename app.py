@@ -80,7 +80,7 @@ def after():
 
     final_prediction = label_map_emo[final_prediction_1]
 
-    return render_template('after.html', data=final_prediction_1)
+    return final_prediction_1
 
 if __name__ == "__main__":
     app.run( '127.0.0.1', '8000' ,debug=True)
