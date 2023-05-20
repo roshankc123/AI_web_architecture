@@ -1,4 +1,4 @@
-feather.replace();
+// feather.replace();
 
 const controls = document.querySelector(".controls");
 const cameraOptions = document.querySelector(".video-options>select");
@@ -193,7 +193,7 @@ const responseToDom=async(val)=>{
     'Angry':"😠",
     'Fear':"😨",
     'Disgust':"😖",
-    'Suprise':"😯"
+    'Surprise':"😯"
   }
   //open the model
   const data=val.split(',')[0]
