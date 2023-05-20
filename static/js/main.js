@@ -195,11 +195,11 @@ const responseToDom = async (e,val) => {
   };
   //open the model
   const data = val.split(",")[0];
-  const image = val.split(",")[1] || 'file.jpg'
+  const image = 'file.jpg'
   // modal.style.display = "block";
   modelText.innerHTML = responseObj[data];
   modelTextDescp.innerHTML = data;
-  responseImage.src = `../static/${image}`;
+  responseImage.src = `../static/file.jpg`;
   console.log("finished")
   if(!global_pause){
     doScreenshot(e)
