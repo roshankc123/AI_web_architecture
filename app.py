@@ -5,6 +5,8 @@ import numpy as np
 import pickle
 from skimage.transform import resize
 import random
+from tensorflow.keras.preprocessing import image
+from PIL import Image
 
 app = Flask(__name__)
 
@@ -33,7 +35,7 @@ def after():
 
         cropped = img1[y:y+h, x:x+w]
 
-    cv2.imwrite('static/'+str(aftername)+'.jpg', img1)
+    cv2.imwrite('static/after.jpg', img1)
 
     try:
         cv2.imwrite('static/cropped.jpg', cropped)
@@ -44,43 +46,36 @@ def after():
     #####################################
 
     try:
-        image = cv2.imread('static/cropped.jpg', 0)
+        cropped_image = cv2.imread('static/cropped.jpg', 0)
     except:
-        image = cv2.imread('static/file.jpg', 0)
+        cropped_image = cv2.imread('static/file.jpg', 0)
 
-    image = resize(image, (48,48))
+    # prediction pipeline starts
+    
 
-    # image = image/255.0
+    gray_img = Image.fromarray(cropped_image).convert('L')
+    resized_img = gray_img.resize((48, 48))
+    img_array = np.array(resized_img)
+    img_array = img_array.reshape((48, 48, 1))
+    img_array = np.expand_dims(img_array, axis=0)
+    scaled_img = img_array / 255.0
+    model = load_model('64_accuracy_model.h5')
+    prediction = model.predict(scaled_img)
 
-    image = [image.flatten()]
+    pred_class = np.argmax(prediction)
+    
+    # prediction pipeline ends 
 
-    # print(l)
+    label_map =   ['Angry', 'disgust' , 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
 
-    # image = np.reshape(image, (1,48,48,1))
+    print(pred_class)
 
-    # image = image.reshape((1,48,48,1))
+    final_prediction_1 = label_map[pred_class]
 
-    # model = load_model('model_3.h5')
-    model = pickle.load(open('SVM_model.pkl', 'rb'))
+    # label_map_emo =   {'Anger' : '😡', 'disgust' : '', 'Fear' : '', 'Happy' : '😀','Neutral' : '😇' , 'Sad' : '', 'Surprise' : ''}
 
-    # prediction = model.predict(image)
+    # final_prediction = label_map_emo[final_prediction_1]
 
-    prediction = model.predict(image)[0]
-
-
-    print(prediction)
-
-    label_map =   ['Anger', 'disgust' , 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
-
-    # prediction = np.argmax(prediction)
-
-    print(prediction)
-
-    final_prediction_1 = label_map[prediction]
-
-    label_map_emo =   {'Anger' : '', 'disgust' : '', 'Fear' : '', 'Happy' : '😀','Neutral' : '😇' , 'Sad' : '', 'Surprise' : ''}
-
-    final_prediction = label_map_emo[final_prediction_1]
 
     return final_prediction_1+','+str(aftername)+'.jpg'
 
