@@ -203,9 +203,7 @@ const responseToDom = async (e,val) => {
   console.log("finished")
   if(!global_pause){
     setTimeout(() => {
-      console.log("timeout1")
       doScreenshot(e)
-      console.log("timeout100")
     }, 10);
   }
 };
