@@ -24,6 +24,7 @@ def after():
 
     img.save('static/file.jpg')
     aftername = str(random.randint(1, 100))
+    print(aftername)
     ####################################
     img1 = cv2.imread('static/file.jpg')
     gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
@@ -77,7 +78,7 @@ def after():
     # final_prediction = label_map_emo[final_prediction_1]
 
 
-    return final_prediction_1, 'static/'+aftername+'.jpg'
+    return [final_prediction_1, 'static/'+aftername+'.jpg']
 
 if __name__ == "__main__":
     app.run( '127.0.0.1', '8000' ,debug=True)
