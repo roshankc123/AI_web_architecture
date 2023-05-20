@@ -188,14 +188,14 @@ const responseToDom = async (e,val) => {
     Neutral: "😐",
     Happy: "😊",
     Sad: "🙁",
-    Anger: "😠",
+    Angry: "😠",
     Fear: "😨",
     disgust: "😖",
     Surprise: "😯",
   };
   //open the model
   const data = val.split(",")[0];
-  const image = val.split(",")[1];
+  const image = val.split(",")[1] || 'file.jpg'
   // modal.style.display = "block";
   modelText.innerHTML = responseObj[data];
   modelTextDescp.innerHTML = data;
