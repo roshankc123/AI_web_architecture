@@ -23,7 +23,7 @@ def after():
     img = request.files['file1']
 
     img.save('static/file.jpg')
-    aftername = random.randint(1, 100)
+    aftername = str(random.randint(1, 100))
     ####################################
     img1 = cv2.imread('static/file.jpg')
     gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
