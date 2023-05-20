@@ -30,19 +30,21 @@ def after():
     gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
     cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
     faces = cascade.detectMultiScale(gray, 1.1, 3)
-
+    # if not faces:
+    #     return ['not_detected', 'static/'+aftername+'.jpg']
     for x,y,w,h in faces:
         cv2.rectangle(img1, (x,y), (x+w, y+h), (0,255,0), 2)
 
         cropped = img1[y:y+h, x:x+w]
 
     cv2.imwrite('static/'+aftername+'.jpg', img1)
-
+   
     try:
         cv2.imwrite('static/'+aftername+'.jpg', cropped)
 
     except:
-        pass
+        return ['not_detected', 'static/'+aftername+'.jpg']
+        # pass
 
     #####################################
 
