@@ -46,23 +46,42 @@
                 </div>
             </div>
 
-            <div class="row donate m-1 py-2">
+            <div class="row donate mx-5 py-1 text-center" >
                 <br>
-                <h5>Welcome to Facimotion !! <span class="small"> We will capture your image from the camera and detect your Emotion </span> </h5>
+                <h5>Welcome to Facimotion !! <span class="small"> </span> </h5>
                 <br>
-               
+
                 <br>
             </div>
 
-            <div class="row camblock p-3 pt-1 mt-0">
+            <div class="row camblock p-2 pt-1 mt-0">
                 <div class="col-12 col-md-8 m-0">
                     <div class="display-cover col-md-6 text-center">
                         <div class="videoOrImage">
-                            <video autoplay id="afterStartVideo" class="d-none" ></video>
-                            <img id="replacingImage" class="screenshot-image-first" src="../static/emotion.jpg" alt="_ Here will be screenshot" >
+                            <video autoplay id="afterStartVideo" class="d-none"></video>
+                            <img id="replacingImage" class="screenshot-image-first" src="../static/emotion.jpg"
+                                alt="_ Here will be screenshot">
                             <p id="imageText" class="imageText bold"> Click on the Start Camera button </p>
+                            <div class="grid5050 ">
+                                <div class="controls mx-4 px-4 ">
+                                    <button class="btn btn-danger play" title="Play">Start Camera</button>
+                                    <button class="btn btn-info pause d-none" title="Pause">Pause</button>
+                                    <button class="btn btn-success screenshot d-none" title="ScreenShot">
+                                        Capture
+                                    </button>
+                                </div>
+                                <div class="emoji ">
+                                    <p id="modelpara" style="text-align: center;
+                                    "> 
+                                    <span id="modelText" style="font-size: 5rem;"></span>
+                                     <br>
+                                      <span id="modelTextDescp" style="font-size: 1rem;font-weight: bold; text-align: center;"></span> </p>
+                                </div>
+                            </div>
                         </div>
-                        <canvas class="d-none">  </canvas>
+
+                        <canvas class="d-none"> </canvas>
+
 
                         <div class="video-options">
                             <select name="" id="" class="custom-select">
@@ -73,13 +92,7 @@
 
                     </div>
 
-                    <div class="controls m-4 px-4 ">
-                        <button class="btn btn-danger play" title="Play">Start Camera</button>
-                        <button class="btn btn-info pause d-none" title="Pause">Pause</button>
-                        <button class="btn btn-success screenshot d-none" title="ScreenShot">
-                            Capture
-                        </button>
-                    </div>
+
                 </div>
 
                 <div class="col-12 col-sm-12 col-md-4 container ">
@@ -96,11 +109,11 @@
                     <div class="container finalSubmit">
                         <br>
                         <br>
-                        <h6>After clicking the capture button,</h6>
+                        <h6>After clicking the Start Camera button,</h6>
                         <h6> There will be two options to pause the Video and Capture the Image </h6>
-                        <h6> Choose accordingly and if you want to recapture the image then click again !!</h6>
+                        <h6> After clicking the capture button, the app will detect your Emotion!</h6>
                         <h5> </h5>
-                        <form class="form-inline py-3" action="{{url_for('after')}}"
+                        <form class="form-inline py-3 d-none" action="{{url_for('after')}}"
                             enctype="multipart/        form-data" method="post" name="mainForm">
                             <button type="submit" class="btn btn-primary submitData" title="SubmitData">Submit</button>
                         </form>
@@ -111,29 +124,19 @@
 
 
             <!-- The Modal -->
-            <div id="myModal" class="modal">
 
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="close " id="myModelClose">&times;</span>
-                    <p id="modelpara" style="    text-align: center;
-                    "> <span id="modelText" style="font-size: 10rem;"></span> <br> <span
-                            style="font-weight: bold; text-align: center;"></span> </p>
-                </div>
-
-            </div>
 
         </div>
     </div>
 
 
 
-    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- <script src="https://unpkg.com/feather-icons"></script> -->
     <script src="../static/js/main.js" type="text/javascript"></script>
 
 </body>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"> -->
 
 
 </script>
