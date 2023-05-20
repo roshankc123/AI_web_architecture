@@ -35,10 +35,10 @@ def after():
 
         cropped = img1[y:y+h, x:x+w]
 
-    cv2.imwrite('static/after.jpg', img1)
+    cv2.imwrite('static/file.jpg', img1)
 
     try:
-        cv2.imwrite('static/cropped.jpg', cropped)
+        cv2.imwrite('static/file.jpg', cropped)
 
     except:
         pass
@@ -46,7 +46,7 @@ def after():
     #####################################
 
     try:
-        cropped_image = cv2.imread('static/cropped.jpg', 0)
+        cropped_image = cv2.imread('static/file.jpg', 0)
     except:
         cropped_image = cv2.imread('static/file.jpg', 0)
 
@@ -77,7 +77,7 @@ def after():
     # final_prediction = label_map_emo[final_prediction_1]
 
 
-    return final_prediction_1+','+str(aftername)+'.jpg'
+    return final_prediction_1
 
 if __name__ == "__main__":
     app.run( '127.0.0.1', '8000' ,debug=True)
