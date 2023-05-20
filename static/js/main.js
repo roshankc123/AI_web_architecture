@@ -195,14 +195,18 @@ const responseToDom = async (e,val) => {
   };
   //open the model
   const data = val.split(",")[0];
-  const image = 'file.jpg'
+  const image = val.split(",")[1] || "" ;
   // modal.style.display = "block";
   modelText.innerHTML = responseObj[data];
   modelTextDescp.innerHTML = data;
-  responseImage.src = `../static/file.jpg`;
+  responseImage.src = `../static/${image}`;
   console.log("finished")
   if(!global_pause){
-    doScreenshot(e)
+    setTimeout(() => {
+      console.log("timeout1")
+      doScreenshot(e)
+      console.log("timeout100")
+    }, 10);
   }
 };
 
