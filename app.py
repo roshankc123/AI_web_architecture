@@ -46,9 +46,9 @@ def after():
     #####################################
 
     try:
-        cropped_image = cv2.imread('static/file.jpg', 0)
+        cropped_image = cv2.imread('static/'+aftername+'.jpg', 0)
     except:
-        cropped_image = cv2.imread('static/file.jpg', 0)
+        cropped_image = cv2.imread('static/'+aftername+'.jpg', 0)
 
     # prediction pipeline starts
     
@@ -77,7 +77,7 @@ def after():
     # final_prediction = label_map_emo[final_prediction_1]
 
 
-    return final_prediction_1, 'static/file.jpg'
+    return final_prediction_1, 'static/'+aftername+'.jpg'
 
 if __name__ == "__main__":
     app.run( '127.0.0.1', '8000' ,debug=True)
