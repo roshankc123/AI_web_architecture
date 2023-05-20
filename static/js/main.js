@@ -192,14 +192,19 @@ const responseToDom = async (e,val) => {
     Fear: "😨",
     disgust: "😖",
     Surprise: "😯",
+    Not_Detected:"⛔"
   };
   //open the model
-  const data = val.split(",")[0];
-  const image = val.split(",")[1] || "" ;
+
+  
+  let value=(JSON.parse(val))
+  const data = value[0]
+  
+  const image = value[1]
   // modal.style.display = "block";
   modelText.innerHTML = responseObj[data];
   modelTextDescp.innerHTML = data;
-  responseImage.src = `../static/${image}`;
+  responseImage.src = `../${image}`;
   console.log("finished")
   if(!global_pause){
     setTimeout(() => {
