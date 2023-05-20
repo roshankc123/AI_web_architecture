@@ -35,10 +35,10 @@ def after():
 
         cropped = img1[y:y+h, x:x+w]
 
-    cv2.imwrite('static/file.jpg', img1)
+    cv2.imwrite('static/'+aftername+'.jpg', img1)
 
     try:
-        cv2.imwrite('static/file.jpg', cropped)
+        cv2.imwrite('static/'+aftername+'.jpg', cropped)
 
     except:
         pass
