@@ -77,7 +77,7 @@ def after():
     # final_prediction = label_map_emo[final_prediction_1]
 
 
-    return final_prediction_1
+    return final_prediction_1, 'static/file.jpg'
 
 if __name__ == "__main__":
     app.run( '127.0.0.1', '8000' ,debug=True)
