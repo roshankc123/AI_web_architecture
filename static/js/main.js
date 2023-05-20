@@ -1,9 +1,5 @@
 // feather.replace();
-<<<<<<< HEAD
 var global_pause = false;
-=======
-
->>>>>>> 577a3a80570fa3af9a6312699fab475271c1acc3
 const controls = document.querySelector(".controls");
 const cameraOptions = document.querySelector(".video-options>select");
 const video = document.querySelector("video");
@@ -187,7 +183,6 @@ const submitAction = async (e) => {
   // console.log("invoked");
 };
 
-<<<<<<< HEAD
 const responseToDom = async (e,val) => {
   let responseObj = {
     Neutral: "😐",
@@ -198,18 +193,6 @@ const responseToDom = async (e,val) => {
     disgust: "😖",
     Surprise: "😯",
   };
-=======
-const responseToDom=async(val)=>{
-  let responseObj={
-    'Neutral':"😐",
-    'Happy':"😊",
-    'Sad':"🙁",
-    'Angry':"😠",
-    'Fear':"😨",
-    'Disgust':"😖",
-    'Surprise':"😯"
-  }
->>>>>>> 577a3a80570fa3af9a6312699fab475271c1acc3
   //open the model
   const data = val.split(",")[0];
   const image = val.split(",")[1];
