@@ -1,9 +1,5 @@
-// feather.replace();
-<<<<<<< HEAD
-
-=======
+feather.replace();
 var global_pause = false;
->>>>>>> 178e48cc882fd4e329d58fd8802e1b0d6195d873
 const controls = document.querySelector(".controls");
 const cameraOptions = document.querySelector(".video-options>select");
 const video = document.querySelector("video");
@@ -21,14 +17,12 @@ var imageText = document.getElementById("imageText");
 var responseImage = document.getElementById("responseImage");
 
 //For model
-// var modal = document.getElementById("myModal");
-// var modelClose = document.getElementById("myModelClose");
+var modal = document.getElementById("myModal");
+var modelClose = document.getElementById("myModelClose");
 var modelText = document.getElementById("modelText");
-var modelTextDescp = document.getElementById("modelTextDescp");
 
 let streamStarted = false;
 
-//start , pause, capture
 const [play, pause, screenshot] = buttons;
 
 let variables = {};
@@ -50,15 +44,15 @@ const constraints = {
 };
 
 //Model funtions
-// modelClose.onclick = function () {
-//   modal.style.display = "none";
-// };
+modelClose.onclick = function () {
+  modal.style.display = "none";
+};
 
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// };
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
 
 const getCameraSelection = async () => {
   const devices = await navigator.mediaDevices.enumerateDevices();
@@ -81,8 +75,6 @@ play.onclick = () => {
     video.play();
     play.classList.add("d-none");
     pause.classList.remove("d-none");
-    screenshot.classList.remove("d-none");
-
     return;
   }
   if ("mediaDevices" in navigator && navigator.mediaDevices.getUserMedia) {
@@ -125,7 +117,6 @@ const pauseStream = () => {
   global_pause = true;
   video.pause();
   play.classList.remove("d-none");
-  screenshot.classList.add("d-none");
   pause.classList.add("d-none");
 };
 
@@ -194,15 +185,14 @@ const responseToDom = async (e,val) => {
     Sad: "🙁",
     Anger: "😠",
     Fear: "😨",
-    disgust: "😖",
-    Surprise: "😯",
+    Disgust: "😖",
+    Suprise: "😯",
   };
   //open the model
   const data = val.split(",")[0];
   const image = val.split(",")[1];
   // modal.style.display = "block";
   modelText.innerHTML = responseObj[data];
-  modelTextDescp.innerHTML = data;
   responseImage.src = `../static/${image}`;
   console.log("finished")
   if(!global_pause){

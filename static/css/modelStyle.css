@@ -1,51 +1,29 @@
 
+.grid5050{
+  display: grid;
+  grid-template-columns: 60% 40%;
+  height: fit-content;
+
+}
+
+.grid5050 button{
+  height: fit-content;
+  width: fit-content;
+}
 
 .modelpara{
-    width: 100px; 
-    height: 100px; 
-    font-size: 16rem !important;
-    font-weight: 900;
     text-align: center;
 }
 
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
+#myCustomModal{
+   width: 200px;
+}
+
+.modal-custom {
+    width: 200px;
   }
 
-.modal button
-{
-
-}  
   /* Modal Content */
   .modal-content {
     background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
   }
