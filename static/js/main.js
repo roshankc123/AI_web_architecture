@@ -1,4 +1,5 @@
 // feather.replace();
+
 var global_pause = false;
 const controls = document.querySelector(".controls");
 const cameraOptions = document.querySelector(".video-options>select");
