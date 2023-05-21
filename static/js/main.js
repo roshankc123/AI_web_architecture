@@ -1,9 +1,5 @@
 // feather.replace();
-<<<<<<< HEAD
-
-=======
 var global_pause = false;
->>>>>>> 178e48cc882fd4e329d58fd8802e1b0d6195d873
 const controls = document.querySelector(".controls");
 const cameraOptions = document.querySelector(".video-options>select");
 const video = document.querySelector("video");

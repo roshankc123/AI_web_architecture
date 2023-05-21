@@ -1,4 +1,6 @@
 from flask import * 
+from OpenSSL import SSL
+from flask_cors import CORS
 import cv2
 from keras.models import load_model
 import numpy as np
@@ -9,9 +11,9 @@ from tensorflow.keras.preprocessing import image
 from PIL import Image
 
 app = Flask(__name__)
+CORS(app)
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
-
 
 
 @app.route('/')
@@ -82,7 +84,12 @@ def after():
 
     return [final_prediction_1, 'static/'+aftername+'.jpg']
 
+# server_ip = '127.0.0.1'
+server_ip = '192.168.1.67'
+
 if __name__ == "__main__":
-    app.run( '127.0.0.1', '8000' ,debug=True)
+    context = ('cert.pem', 'key.pem')
+    # app.run( server_ip, '8000' ,debug=True, ssl_context = context)
+    app.run( server_ip, '8000' ,debug=True)
 
 
