@@ -192,7 +192,7 @@ const responseToDom = async (e,val) => {
     Fear: "😨",
     disgust: "😖",
     Surprise: "😯",
-    Not_Detected:"⛔"
+    not_detected:"⛔"
   };
   //open the model
 
