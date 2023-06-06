@@ -4,10 +4,7 @@ from flask_cors import CORS
 import cv2
 from keras.models import load_model
 import numpy as np
-import pickle
-from skimage.transform import resize
 import random
-from tensorflow.keras.preprocessing import image
 from PIL import Image
 
 app = Flask(__name__)

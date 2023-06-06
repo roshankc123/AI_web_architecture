@@ -1,12 +1,12 @@
-from flask import * 
-import cv2
-from keras.models import load_model
-import numpy as np
-import pickle
-from skimage.transform import resize
-import random
-from tensorflow.keras.preprocessing import image
-from PIL import Image
+# from flask import * 
+# import cv2
+# from keras.models import load_model
+# import numpy as np
+# import pickle
+# from skimage.transform import resize
+# import random
+# from tensorflow.keras.preprocessing import image
+# from PIL import Image
 
 
 def after():
