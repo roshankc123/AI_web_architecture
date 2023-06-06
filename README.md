@@ -3,7 +3,7 @@
 	2. pip install -r requirement.txt
 	3. python app.py
 	4. site is hosted
-
+*requirements generated using pipreqs
 or follow below explanation, from official creater of this code
 
 # facial-emotion-detection-webapp
