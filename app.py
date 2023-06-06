@@ -84,8 +84,8 @@ def after():
 
     return [final_prediction_1, 'static/'+aftername+'.jpg']
 
-# server_ip = '127.0.0.1'
-server_ip = '192.168.1.67'
+server_ip = '127.0.0.1'
+# server_ip = '192.168.1.67'
 
 if __name__ == "__main__":
     context = ('cert.pem', 'key.pem')

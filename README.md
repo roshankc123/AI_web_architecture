@@ -1,6 +1,6 @@
 # do this to run
 	1. go to the main folder
-	2. pip install requirement.txt
+	2. pip install -r requirement.txt
 	3. python app.py
 	4. site is hosted
 
