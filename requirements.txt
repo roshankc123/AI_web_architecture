@@ -1,6 +1,6 @@
 Flask==2.2.2
 Flask_Cors==3.0.10
 keras==2.10.0
-numpy==1.23.2
+numpy==1.24.3
 Pillow==9.5.0
 pyOpenSSL==23.2.0
