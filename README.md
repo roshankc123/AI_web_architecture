@@ -15,6 +15,9 @@ note book link : https://www.kaggle.com/programminghut/facial-detection
 here is a video explaination :
 https://youtu.be/q2hdXLPN8JQ
 
+here is the demo link implemented in pythonanywhere:
+https://facimotion121.pythonanywhere.com/
+
 <h1>Steps to run</h1>
  1: you can use facial_detection.py to create the model also it includes the prediction cells also.
 
